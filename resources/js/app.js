@@ -7,6 +7,24 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+// ルートを定義します
+// 各ルートは 1 つのコンポーネントとマッピングされる必要があります。
+let routes = [
+  { path: '/dashboard', component: require('./components/Dashboard.vue').default },
+  { path: '/profile', component: require('./components/Profile.vue').default }
+]
+
+// ルーターインスタンスを作成して、ルートオプションを渡します
+const router = new VueRouter({
+    mode: 'history',
+    routes // `routes: routes` の短縮表記
+})
+
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,6 +45,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// root となるインスタンスを作成してマウントします
+// アプリケーション全体がルーターを認知できるように、
+// ルーターをインジェクトすることを忘れないでください。
 const app = new Vue({
-    el: '#app',
+  router,
+  el: '#app'
 });
