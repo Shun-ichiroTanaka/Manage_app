@@ -114,7 +114,7 @@ export default {
     }
   },
   methods: {
-      createUser () {
+      createUser() {
         this.form.post('api/user');
     }
   },
