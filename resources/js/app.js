@@ -4,27 +4,35 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
-import VueRouter from 'vue-router'
+window.Vue = require("vue");
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 // ルートを定義します
 // 各ルートは 1 つのコンポーネントとマッピングされる必要があります。
 let routes = [
-  { path: '/dashboard', component: require('./components/Dashboard.vue').default },
-  { path: '/profile', component: require('./components/Profile.vue').default }
-]
+    {
+        path: "/dashboard",
+        component: require("./components/Dashboard.vue").default
+    },
+    {
+        path: "/profile",
+        component: require("./components/Profile.vue").default
+    },
+    {
+        path: "/users",
+        component: require("./components/Users.vue").default
+        }
+];
 
 // ルーターインスタンスを作成して、ルートオプションを渡します
 const router = new VueRouter({
-    mode: 'history',
+    mode: "history",
     routes // `routes: routes` の短縮表記
-})
-
-
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -37,7 +45,10 @@ const router = new VueRouter({
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component(
+    "example-component",
+    require("./components/ExampleComponent.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -49,6 +60,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 // アプリケーション全体がルーターを認知できるように、
 // ルーターをインジェクトすることを忘れないでください。
 const app = new Vue({
-  router,
-  el: '#app'
+    router,
+    el: "#app"
 });
