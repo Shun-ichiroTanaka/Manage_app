@@ -7,12 +7,18 @@
 require("./bootstrap");
 
 window.Vue = require("vue");
-import VueRouter from "vue-router";
 
+// ①v-form,axiosを使ったユーザー追加フォーム
+import { Form, HasError, AlertError } from 'vform'
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+
+// v-router
+import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 // ルートを定義します
-// 各ルートは 1 つのコンポーネントとマッピングされる必要があります。
 let routes = [
     {
         path: "/dashboard",
