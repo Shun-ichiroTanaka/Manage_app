@@ -9,29 +9,21 @@ require("./bootstrap");
 window.Vue = require("vue");
 
 // ①v-form,axiosを使ったユーザー追加フォーム
-import { Form, HasError, AlertError } from 'vform'
+import { Form, HasError, AlertError } from 'vform';
+
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 
 // v-router
-import VueRouter from "vue-router";
-Vue.use(VueRouter);
+import VueRouter from "vue-router"
+Vue.use(VueRouter)
 
 // ルートを定義します
 let routes = [
-    {
-        path: "/dashboard",
-        component: require("./components/Dashboard.vue").default
-    },
-    {
-        path: "/profile",
-        component: require("./components/Profile.vue").default
-    },
-    {
-        path: "/users",
-        component: require("./components/Users.vue").default
-        }
+    { path: "/dashboard", component: require("./components/Dashboard.vue").default },
+    { path: "/profile", component: require("./components/Profile.vue").default },
+    { path: "/users", component: require("./components/Users.vue").default }
 ];
 
 // ルーターインスタンスを作成して、ルートオプションを渡します
